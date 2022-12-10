@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import EmployeeService from '../Services/EmployeeService'
-
 class ListEmployeeComponents extends Component {
     constructor(props){
         super(props)
@@ -13,10 +12,16 @@ class ListEmployeeComponents extends Component {
             this.setState({employees: res.data});
         });
     }
+    addEmployee(){
+        this.props.history.push('/add-employee');
+    }
   render() {
     return (
       <div>
         <h2 className='text-center'>Employee List</h2>
+        <div className='row'>
+            <button className='btn btn-primary' onClick={this.addEmployee.bind(this)}>Add Employee</button>
+        </div>
         <div className='row'>
             <table className='table table-striped table-bordered'>
                 <thead>
@@ -45,4 +50,4 @@ class ListEmployeeComponents extends Component {
     )
   }
 }
-export default ListEmployeeComponents
+export default  ListEmployeeComponents;
